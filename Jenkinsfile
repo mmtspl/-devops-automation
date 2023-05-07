@@ -14,5 +14,21 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+        /*
+        stage('Build docker image'){
+            steps{
+                bat 'docker build -t mmtspl/devops-automation .'
+            }
+        }
+        stage('Push to DockerHub'){
+            steps{
+                withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                bat 'docker login -u mmtspldockerhub' -p ${dockerhubpwd}
+                }
+                bat 'docker push mmtspl/devops-automation'
+            }
+        }
+        */
+
     }
 }
